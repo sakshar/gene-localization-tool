@@ -1,0 +1,29 @@
+LOCUS       BdWA1           1428345 bp    DNA     linear   CON 27-APR-2022
+DEFINITION  Babesia duncani chromosome 3 sequence.
+ACCESSION   BdWA1
+VERSION     BdWA1.0
+KEYWORDS    RefSeq.
+SOURCE      Babesia duncani (parasite)
+FEATURES             Location/Qualifiers
+     source          1..1428345
+                     /organism="Babesia duncani"
+                     /mol_type="genomic DNA"
+                     /chromosome="3"
+     gf3             complement(70775..107647)
+                     /gene="BdWA1_000003"
+     gf8             complement(130041..131768)
+                     /gene="BdWA1_000008"
+     gf3             complement(141145..143301)
+                     /gene="BdWA1_000013"
+     gf8             complement(151507..152753)
+                     /gene="BdWA1_000018"
+     gf3             complement(173378..177602)
+                     /gene="BdWA1_000023"
+     gf8             183751..184971
+                     /gene="BdWA1_000028"
+     centromere             35000..75000
+                     /gene="chr3_centro"
+     centromere             complement(35000..75000)
+                     /gene="chr3_centro"
+CONTIG      1..1428345
+//

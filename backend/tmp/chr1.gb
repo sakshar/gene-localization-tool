@@ -1,0 +1,29 @@
+LOCUS       BdWA1           3133627 bp    DNA     linear   CON 27-APR-2022
+DEFINITION  Babesia duncani chromosome 1 sequence.
+ACCESSION   BdWA1
+VERSION     BdWA1.0
+KEYWORDS    RefSeq.
+SOURCE      Babesia duncani (parasite)
+FEATURES             Location/Qualifiers
+     source          1..3133627
+                     /organism="Babesia duncani"
+                     /mol_type="genomic DNA"
+                     /chromosome="1"
+     gf1             complement(4..67894)
+                     /gene="BdWA1_000001"
+     gf6             complement(122972..125010)
+                     /gene="BdWA1_000006"
+     gf1             139835..140585
+                     /gene="BdWA1_000011"
+     gf6             148601..149920
+                     /gene="BdWA1_000016"
+     gf1             complement(166709..171028)
+                     /gene="BdWA1_000021"
+     gf6             181523..181605
+                     /gene="BdWA1_000026"
+     centromere             1690000..1730000
+                     /gene="chr1_centro"
+     centromere             complement(1690000..1730000)
+                     /gene="chr1_centro"
+CONTIG      1..3133627
+//

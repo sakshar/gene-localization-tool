@@ -1,0 +1,29 @@
+LOCUS       BdWA1           1587141 bp    DNA     linear   CON 27-APR-2022
+DEFINITION  Babesia duncani chromosome 2 sequence.
+ACCESSION   BdWA1
+VERSION     BdWA1.0
+KEYWORDS    RefSeq.
+SOURCE      Babesia duncani (parasite)
+FEATURES             Location/Qualifiers
+     source          1..1587141
+                     /organism="Babesia duncani"
+                     /mol_type="genomic DNA"
+                     /chromosome="2"
+     gf2             complement(68119..70266)
+                     /gene="BdWA1_000002"
+     gf7             complement(126648..128354)
+                     /gene="BdWA1_000007"
+     gf2             140612..141046
+                     /gene="BdWA1_000012"
+     gf7             complement(150206..151198)
+                     /gene="BdWA1_000017"
+     gf2             171312..173252
+                     /gene="BdWA1_000022"
+     gf7             complement(181661..183263)
+                     /gene="BdWA1_000027"
+     centromere             1510000..1550000
+                     /gene="chr2_centro"
+     centromere             complement(1510000..1550000)
+                     /gene="chr2_centro"
+CONTIG      1..1587141
+//

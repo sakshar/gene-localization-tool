@@ -1,0 +1,29 @@
+LOCUS       BdWA1           1068143 bp    DNA     linear   CON 27-APR-2022
+DEFINITION  Babesia duncani chromosome 4 sequence.
+ACCESSION   BdWA1
+VERSION     BdWA1.0
+KEYWORDS    RefSeq.
+SOURCE      Babesia duncani (parasite)
+FEATURES             Location/Qualifiers
+     source          1..1068143
+                     /organism="Babesia duncani"
+                     /mol_type="genomic DNA"
+                     /chromosome="4"
+     gf4             complement(107938..119902)
+                     /gene="BdWA1_000004"
+     gf9             complement(133301..137405)
+                     /gene="BdWA1_000009"
+     gf4             complement(143440..146496)
+                     /gene="BdWA1_000014"
+     gf9             152778..163991
+                     /gene="BdWA1_000019"
+     gf4             complement(177631..178864)
+                     /gene="BdWA1_000024"
+     gf9             complement(185009..187155)
+                     /gene="BdWA1_000029"
+     centromere             915000..955000
+                     /gene="chr4_centro"
+     centromere             complement(915000..955000)
+                     /gene="chr4_centro"
+CONTIG      1..1068143
+//
