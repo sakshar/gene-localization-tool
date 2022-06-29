@@ -4,6 +4,28 @@ import pandas as pd
 import openpyxl
 from reportlab.lib.units import cm
 from Bio.Graphics import BasicChromosome
+import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
+
+
+colorCode = {0: (round(255/255,2), round(255/255,2), round(255/255,2)),
+            1: (round(100/255,2), round(100/255,2), round(100/255,2)),
+            2: (round(255/255,2), round(0/255,2), round(0/255,2)),
+            3: (round(0/255,2), round(255/255,2), round(0/255,2)),
+            4: (round(0/255,2), round(0/255,2), round(255/255,2)),
+            5: (round(0/255,2), round(255/255,2), round(255/255,2)),
+            6: (round(255/255,2), round(0/255,2), round(255/255,2)),
+            7: (round(255/255,2), round(255/255,2), round(0/255,2)),
+            8: (round(152/255,2), round(251/255,2), round(152/255,2)),
+            9: (round(135/255,2), round(206/255,2), round(250/255,2)),
+            10: (round(255/255,2), round(165/255,2), round(0/255,2)),
+            11: (round(200/255,2), round(150/255,2), round(100/255,2)),
+            12: (round(255/255,2), round(200/255,2), round(200/255,2)),
+            13: (round(170/255,2), round(170/255,2), round(170/255,2)),
+            14: (round(0/255,2), round(0/255,2), round(0/255,2)),
+            15: (round(255/255,2), round(63/255,2), round(63/255,2)),
+            16: (round(255/255,2), round(127/255,2), round(127/255,2)),
+            17: (round(255/255,2), round(191/255,2), round(191/255,2))}
 
 
 def geneFamilyPlotter(chrLenMap, colorMap):
@@ -128,6 +150,20 @@ def gbCreator(gene_dict, chrLenMap):
         gb.close()
 
 
+def legendPlotter(colorMap):
+    fig, ax = plt.subplots()
+    colorList = []
+    gfs = list(colorMap.keys())
+    for gf in gfs:
+        patch = mpatches.Patch(color=colorCode[colorMap[gf]], label=gf)
+        colorList.append(patch)
+    centromere = mpatches.Patch(color=colorCode[1], label='Centromere') #grey
+    ax.legend(handles=colorList+[centromere], loc='center')
+    ax.axis('off')
+    plt.tight_layout()
+    plt.savefig("legends.png")
+
+
 if __name__ == "__main__":
     data = sys.argv[1]
     chrLenFile = sys.argv[2]
@@ -139,4 +175,5 @@ if __name__ == "__main__":
     geneDict = gfDataParser(data, chrs)
     gbCreator(geneDict, chrLenMap)
     geneFamilyPlotter(chrLenMap, colorMap)
+    legendPlotter(colorMap)
     
