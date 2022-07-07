@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: "Fira Sans", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}
+
+:root {
+    font-size: 16px;
+}
+
+p {
+    margin: 1rem 1rem 0 5rem;
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    font-family: "Fira Sans", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    line-height: 2.375rem;
+}
+
+a {
+    color: #003da5;
+}
+
+a:hover {
+    color: #6fa3ff;
+}
+
+a:active {
+    color: #ffb81c;
+}
+
+.accent-blue {
+    color: #003da5;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 2.375rem;
+}
+
+.accent-grey {
+    color: #1a1a1a;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 2.375rem;
+}
+
+h1 {
+    margin: 1rem 1rem 0 5rem;
+    color: #003da5;
+    font-size: 4rem;
+    font-family:  "Fira Sans", Trebuchet MS, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+}
+
+h2 {
+    margin: 1rem 1rem 0 5rem;
+    color: #1a1a1a;
+    font-size: 2.5rem;
+    font-family:  "Fira Sans", Trebuchet MS, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+}
+
+#brief {
+    width: 50%;
+}
+
+#fields {
+    margin-top: 2rem;
+}
+
+.float-container {
+    display: flex;
+    align-items: center;
+}
+
+.float-container div {
+    width: 50%;
+    float: left;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-container-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-container-vertical div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 1vw;
+}
+
+.flex-container a {
+    font-size: 2.5vw;
+    margin: 0;
+    font-family:  "Fira Sans", Trebuchet MS, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+}
+
+#hero-img {
+    max-width: 100%;
+    height: auto;
+}
+
+#hold-right {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 2vw;
+}
+
+#push-right {
+    margin-left: 3vw;
+}
