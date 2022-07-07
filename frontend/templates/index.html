@@ -5,13 +5,14 @@
 	<meta charset="utf-8">
 	<title>Gene Tool</title>
 	{% load static %}
-	<link href="{% static 'css/gene_tool_style.css'%}" rel="stylesheet">
+	<link href="{% static 'css/gene_tool_style.css' %}" rel="stylesheet">
 </head>
 
 <body>
 	<div class="float-container">
 		<div>
-			<img  id="hero-img" src="https://cdn.discordapp.com/attachments/992368481393709076/994057522019303504/UCR_hero_2.4-hd-50pct-trans.png" alt="UCR Hero Image and Title">
+			{% load static %}
+			<img  id="hero-img" src="{% static 'assets/UCR-hero.png' %}" alt="UCR Hero Image">
 		</div>
 		<div class="flex-container">
 			<div id="hold-right">
