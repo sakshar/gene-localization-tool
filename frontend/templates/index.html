@@ -1,35 +1,6 @@
-<!DOCTYPE html>
-<html lang="en-US">
+{% extends 'base.html' %}
 
-<head>
-	<meta charset="utf-8">
-	<title>Gene Tool</title>
-	{% load static %}
-	<link href="{% static 'css/gene_tool_style.css' %}" rel="stylesheet">
-</head>
-
-<body>
-	<div class="float-container">
-		<div>
-			{% load static %}
-			<img  id="hero-img" src="{% static 'assets/UCR-hero.png' %}" alt="UCR Hero Image">
-		</div>
-		<div class="flex-container">
-			<div id="hold-right">
-				<a href="./help">Help</a>
-			</div>
-			<div>
-				<div class="flex-container-vertical">
-					<div>
-						<a href="./about">About</a>
-					</div>
-					<div>
-						<a id="push-right" href="./">Home</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+{% block content %}
 	<div id="brief">
 		<h1>Gene Localization Tool</h1>
 		<p><span class="accent-grey">To use this tool,</span> you must provide two sets of data: information about the gene families and information about the chromosomes they reside in. In addition, you may optionally specify their colors.</p>
@@ -40,7 +11,4 @@
 		<p><span class="accent-blue">Chromosomes: </span> __FIELD__  txt</p>
 		<p><span class="accent-grey">Colors: </span> __FIELD__  txt</p>
 	</div>
-
-</body>
-
-</html>
+{% endblock %}
