@@ -18,7 +18,7 @@ from django.urls import include, path
 from .views import goto_gene_tool
 
 urlpatterns = [
-    path('gene_tool/', include('gene_tool.urls')),
+    path('gene_tool/', include('Testapp.urls')),
     path('', goto_gene_tool),
     path('admin/', admin.site.urls),
 ]
