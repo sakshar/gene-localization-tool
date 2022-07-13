@@ -1,8 +1,6 @@
-from django.db import models
 from django.shortcuts import render, redirect
 from .forms import InformationForm
 from django.http import HttpResponse
-import uuid
 
 
 def v_help(request):
