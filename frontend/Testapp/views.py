@@ -1,6 +1,8 @@
+from django.db import models
 from django.shortcuts import render, redirect
 from .forms import InformationForm
 from django.http import HttpResponse
+import uuid
 
 
 def v_help(request):
@@ -11,6 +13,7 @@ def v_index(request):
     if request.method == 'POST':
         new_information = InformationForm(request.POST, request.FILES)
         if new_information.is_valid():
+            new_information.clean()
             new_information.save()
             #   exec(backend files)
             return redirect('./download')

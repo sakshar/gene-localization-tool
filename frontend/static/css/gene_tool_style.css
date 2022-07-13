@@ -66,6 +66,7 @@ h2 {
 
 #fields {
     margin-top: 2rem;
+    height: 5%;
 }
 
 .float-container {
@@ -91,7 +92,7 @@ h2 {
     flex: 1;
     display: flex;
     align-items: center;
-    margin: 1vw;
+    margin: 0;
 }
 
 .flex-container a {
@@ -115,15 +116,4 @@ h2 {
 
 #push-right {
     margin-left: 3vw;
-}
-
-.button {
-  background-color: #4CAF50; /* Green */
-  /*border: none;*/
-  /*color: white;*/
-  /*padding: 15px 32px;*/
-  /*text-align: center;*/
-  /*text-decoration: none;*/
-  /*display: inline-block;*/
-  /*font-size: 16px;*/
 }

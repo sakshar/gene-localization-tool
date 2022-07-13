@@ -11,10 +11,43 @@
 	<div id="fields">
 		<form method="post" enctype="multipart/form-data">
 			{% csrf_token %}
-			{{ form }}
-			<p><span class="accent-grey">Confirm: </span> <button style="display:inline-block">Create and Download</button></p>
+			{{ form.non_field_errors }}
+			<div class="flex-container" style="margin-left:0">
+				<div class="flex-container-vertical">
+					<div>
+						{{ form.families.errors }}
+						<label for="{{ form.families.id_for_label }}"><p style="display:inline"><span class="accent-blue">Families:</span></p></label>
+						{{ form.families }}
+					</div>
+					<div>
+						{{ form.chromosomes.errors }}
+						<label for="{{ form.families.id_for_label }}"><p style="display:inline"><span class="accent-blue">Chromosomes:</span></p></label>
+						{{ form.chromosomes }}
+					</div>
+					<div>
+						{{ form.colors.errors }}
+						<label for="{{ form.families.id_for_label }}"><p style="display:inline"><span class="accent-grey">Colors:</span></p></label>
+						{{ form.colors }}
+					</div>
+			 	</div>
+				<div class="flex-container-vertical">
+					<div>
+						<p>.xlsx, .csv</p>
+					</div>
+					<div>
+						<p>.txt</p>
+					</div>
+					<div>
+						<p>.txt</p>
+					</div>
+				</div>
+			</div>
+			<p><span class="accent-grey">Confirm: </span> <button style="display:inline-block" type="submit">Create and Download</button></p>
 		</form>
 	</div>
 {% endblock %}
 
 
+<!--			<p><span class="accent-blue">Families: </span><input accept=".xlsx, .csv" type="file"/>.xlsx, .csv</p>-->
+<!--			<p><span class="accent-blue">Chromosomes: </span><input accept=".txt" type="file"/>.txt</p>-->
+<!--			<p><span class="accent-grey">Colors: </span><input accept=".txt" type="file"/>.txt</p>-->
