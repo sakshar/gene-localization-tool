@@ -21,7 +21,7 @@ def v_index(request):
 
 
 def v_download(request):
-    return HttpResponse("downloads!")
+    return HttpResponse("Landing page for download and preview (coming soon)")
 
 
 def v_about(request):

@@ -15,7 +15,7 @@ def path_wrapper(name):
         while default_storage.exists("timestamp_" + time_now.now().strftime("%Y-%b-d_%d-hr_%H") + "id_" + str(check_dir) + "/" + name):
             check_dir += 1
 
-        return "timestamp_" + datetime.datetime.now().strftime("%Y-%b-d_%d-hr_%H") + "id_" + str(check_dir) + "/" + name
+        return "timestamp_" + time_now.now().strftime("%Y-%b-d_%d-hr_%H") + "id_" + str(check_dir) + "/" + name
 
     return user_directory_path
 
