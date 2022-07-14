@@ -1,21 +1,27 @@
-from django.conf.global_settings import MEDIA_ROOT
 from django.core.files.storage import default_storage
 from django.core.validators import FileExtensionValidator
 from django.db import models
-import os
 import datetime
 
 
-def path_wrapper(name):
+def read_time(my_time):
+    return "timestamp_" + my_time.strftime("%Y-%b-d%d-hr%H-")
 
+
+def path_wrapper(name):
     def user_directory_path(instance, filename):
         time_now = datetime.datetime.now()
         check_dir = 0
 
-        while default_storage.exists("timestamp_" + time_now.now().strftime("%Y-%b-d_%d-hr_%H") + "id_" + str(check_dir) + "/" + name):
-            check_dir += 1
+        if not name == "colors":
+            while default_storage.exists(read_time(time_now) + "id" + str(check_dir) + "/" + name):
+                check_dir += 1
+        else:
+            while default_storage.exists(read_time(time_now) + "id" + str(check_dir)):
+                check_dir += 1
+            check_dir -= 1
 
-        return "timestamp_" + time_now.now().strftime("%Y-%b-d_%d-hr_%H") + "id_" + str(check_dir) + "/" + name
+        return read_time(time_now) + "id" + str(check_dir) + "/" + name
 
     return user_directory_path
 
@@ -27,4 +33,3 @@ class Information(models.Model):
                                    validators=[FileExtensionValidator(allowed_extensions=['txt'])])
     colors = models.FileField(upload_to=(path_wrapper("colors")), blank=True, null=True,
                               validators=[FileExtensionValidator(allowed_extensions=['txt'])])
-
