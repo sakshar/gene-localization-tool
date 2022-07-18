@@ -3,10 +3,6 @@ from .forms import InformationForm
 from django.http import HttpResponse
 
 
-def v_help(request):
-    return render(request, 'help.html')
-
-
 def v_index(request):
     if request.method == 'POST':
         new_information = InformationForm(request.POST, request.FILES)
@@ -28,3 +24,17 @@ def v_about(request):
     return render(request, 'about.html')
 
 
+def v_help(request):
+    return render(request, 'help.html')
+
+
+# def v_help_families(request):
+#     return redirect('./help')
+#
+#
+# def v_help_chromosomes(request):
+#     return
+#
+#
+# def v_help_colors(request):
+#     return

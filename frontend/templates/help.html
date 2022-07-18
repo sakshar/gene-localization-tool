@@ -10,6 +10,10 @@
 	</div>
 	<div id="fields">
 		<h2>Sample Downloads:</h2>
-		<p><a>Families (csv)</a> | <a>Families (xlsx)</a> | <a>Chromosomes</a> | <a>Colors</a></p>
+		{% load static %}
+		<p><a href="{% static 'downloads/families_csv.csv' %}" download>Families (csv)</a>
+			| <a href="{% static 'downloads/families_xlsx.xlsx' %}" download>Families (xlsx)</a>
+			| <a href="{% static 'downloads/chromosomes.txt' %}" download>Chromosomes</a>
+			| <a href="{% static 'downloads/colors.txt' %}" download>Colors</a></p>
 	</div>
 {% endblock %}
