@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import InformationForm
-from django.http import HttpResponse
+import os
+import datetime
+from django.core.files.storage import default_storage
 
 
 def v_index(request):
@@ -9,7 +11,16 @@ def v_index(request):
         if new_information.is_valid():
             new_information.clean()
             new_information.save()
-            #   exec(backend files)
+
+            directory = get_directory()
+            colors_path = "media\\" + directory + "\\colors"
+            families_path = "media\\" + directory + "\\families"
+            chromosomes_path = "media\\" + directory + "\\chromosomes"
+            if default_storage.exists(directory + "/colors"):
+                os.system('python ..\\backend\\geneLocalization.py' + ' ' + families_path + ' ' + chromosomes_path + ' ' + colors_path)
+            else:
+                os.system('python ..\\backend\\geneLocalization.py' + ' ' + families_path + ' ' + chromosomes_path)
+
             return redirect('./download')
     else:
         new_information = InformationForm()
@@ -17,7 +28,13 @@ def v_index(request):
 
 
 def v_download(request):
-    return HttpResponse("Landing page for download and preview (coming soon)")
+    # check for most recent upload and store name of directory
+
+    context = {
+        "pdf_path": "",
+        "png_path": ""
+    }
+    return render(request, 'download.html', context)
 
 
 def v_about(request):
@@ -28,13 +45,9 @@ def v_help(request):
     return render(request, 'help.html')
 
 
-# def v_help_families(request):
-#     return redirect('./help')
-#
-#
-# def v_help_chromosomes(request):
-#     return
-#
-#
-# def v_help_colors(request):
-#     return
+def get_directory():
+    check_dir = 0
+    timestamp = "timestamp_" + datetime.datetime.now().strftime("%Y-%b-d%d-hr%H-")
+    while default_storage.exists(timestamp + "id" + str(check_dir)):
+        check_dir += 1
+    return timestamp + "id" + str(check_dir - 1)

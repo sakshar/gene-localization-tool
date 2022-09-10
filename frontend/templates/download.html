@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div id="brief">
+		<h1>Downloads</h1>
+		<p><span class="accent-grey">It's finished!</span> you may preview and download the resultant figures below.
+			If the graphics are not present, please try again from the home page.
+			If the error persists, please ensure that your data is valid. Thank you for using our tool!</p>
+	</div>
+	<div id="fields">
+		<h2>Your Downloads:</h2>
+		{% load static %}
+		<p><span class="accent-blue">Legend: </span><a href="{% static 'output/legends.png' %}" download> color key for genes (png)</a></p>
+		<p><span class="accent-blue">Graphic: </span><a href="{% static 'output/geneFamilies.pdf' %}" download> main graphic previewed below (pdf)</a></p>
+	</div>
+	<div class="flex-container-horizontal">
+		<iframe src="{% static 'output/geneFamilies.pdf' %}" width="80%"></iframe>
+	</div>
+{% endblock %}

@@ -66,7 +66,6 @@ h2 {
 
 #fields {
     margin-top: 2rem;
-    height: 5%;
 }
 
 .float-container {
@@ -93,6 +92,15 @@ h2 {
     display: flex;
     align-items: center;
     margin: 0;
+}
+
+.flex-container-horizontal {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 86%;
+    margin-top: 2rem;
+
 }
 
 .flex-container a {

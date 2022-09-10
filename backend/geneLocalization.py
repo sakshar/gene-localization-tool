@@ -6,6 +6,7 @@ from reportlab.lib.units import cm
 from Bio.Graphics import BasicChromosome
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
+import datetime
 
 
 colorCode = {0: (round(255/255,2), round(255/255,2), round(255/255,2)),
@@ -28,7 +29,7 @@ colorCode = {0: (round(255/255,2), round(255/255,2), round(255/255,2)),
             17: (round(255/255,2), round(191/255,2), round(191/255,2))}
 
 
-def geneFamilyPlotter(chrLenMap, colorMap):
+def geneFamilyPlotter(chrLenMap, colorMap, outputPath):
     chrs = list(chrLenMap.keys())
     gfs = list(colorMap.keys())
     max_len = chrLenMap[max(chrLenMap, key=chrLenMap.get)]  # Could compute this from the entries dict
@@ -38,7 +39,7 @@ def geneFamilyPlotter(chrLenMap, colorMap):
     chr_diagram.page_size = (32 * cm, 21 * cm)  # A4 landscape
 
     for ch in chrs:
-        record = SeqIO.read("tmp/"+ch+".gb", "genbank")
+        record = SeqIO.read("../backend/tmp/"+ch+".gb", "genbank")
         length = len(record)
         # Record an Artemis style integer color in the feature's qualifiers,
         # 1 = dark grey, 2 = red, 3 = green, 4 = blue, 5 =cyan, 6 = magenta, 10 = orange
@@ -76,7 +77,7 @@ def geneFamilyPlotter(chrLenMap, colorMap):
         # This chromosome is done
         chr_diagram.add(cur_chromosome)
 
-    chr_diagram.draw("geneFamilies.pdf", "")
+    chr_diagram.draw(outputPath + "/geneFamilies.pdf", "")
 
 
 def chrLenMapper(fileName):
@@ -116,7 +117,7 @@ def gfDataParser(fileName, chrs):
 def gbCreator(gene_dict, chrLenMap):
     chrs = list(chrLenMap.keys())
     for chr in chrs:
-        gb = open("tmp/"+chr+".gb", 'w')
+        gb = open("../backend/tmp/"+chr+".gb", 'w')
         gb.write("LOCUS       BdWA1           "+str(chrLenMap[chr])+" bp    DNA     linear   CON 27-APR-2022\n")
         gb.write("DEFINITION  Babesia duncani chromosome "+chr[3:]+" sequence.\n")
         gb.write("ACCESSION   BdWA1\n")
@@ -150,7 +151,7 @@ def gbCreator(gene_dict, chrLenMap):
         gb.close()
 
 
-def legendPlotter(colorMap):
+def legendPlotter(colorMap, outputPath):
     fig, ax = plt.subplots()
     colorList = []
     gfs = list(colorMap.keys())
@@ -161,7 +162,12 @@ def legendPlotter(colorMap):
     ax.legend(handles=colorList+[centromere], loc='center')
     ax.axis('off')
     plt.tight_layout()
-    plt.savefig("legends.png")
+    plt.savefig(outputPath + "/legends.png")
+
+
+def get_output_path():
+    # this may be changed later depending on the file storing system.
+    return "./static/output/"
 
 
 if __name__ == "__main__":
@@ -174,6 +180,9 @@ if __name__ == "__main__":
     chrs = list(chrLenMap.keys())
     geneDict = gfDataParser(data, chrs)
     gbCreator(geneDict, chrLenMap)
-    geneFamilyPlotter(chrLenMap, colorMap)
-    legendPlotter(colorMap)
-    
+    output_path = get_output_path()
+    geneFamilyPlotter(chrLenMap, colorMap, output_path)
+    legendPlotter(colorMap, output_path)
+
+
+
